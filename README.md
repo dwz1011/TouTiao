@@ -1,6 +1,4 @@
-[今日头条-街拍]
-(http://www.toutiao.com/search/?keyword=%E8%A1%97%E6%8B%8D)
-图集
+[今日头条-街拍](http://www.toutiao.com/search/?keyword=%E8%A1%97%E6%8B%8D)
 
 **知识点**
 
