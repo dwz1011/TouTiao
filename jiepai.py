@@ -14,7 +14,7 @@ from config import *
 client = pymongo.MongoClient(MONGO_URL, connect=False)
 db = client[MONGO_DB]
 
-
+# ajax页面
 def get_page_index(offset, keyword):
     data = {
         'autoload': 'true',
@@ -36,7 +36,7 @@ def get_page_index(offset, keyword):
         print('Error occurred')
         return None
 
-
+# 图片链接
 def download_image(url, title):
     print('Downloading', url)
     try:
@@ -47,7 +47,7 @@ def download_image(url, title):
     except ConnectionError:
         return None
 
-
+# 保存图片
 def save_image(content, title):
     dir_path = '{0}/{1}/{2}'.format(os.getcwd(), 'images', title)
     if not os.path.isdir(dir_path):
@@ -57,6 +57,7 @@ def save_image(content, title):
         with open(file_path, 'wb') as f:
             f.write(content)
             f.close()
+
 def parse_page_index(text):
     try:
         data = json.loads(text)
@@ -95,7 +96,7 @@ def parse_page_detail(html, url):
                 'images': images
             }
 
-
+# 存入数据库
 def save_to_mongo(result):
     if db[MONGO_TABLE].insert(result):
         print('Successfully Saved to Mongo', result)
